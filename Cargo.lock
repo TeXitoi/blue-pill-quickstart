@@ -1,0 +1,156 @@
+[[package]]
+name = "aligned"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "bare-metal"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "blinking_blue_pill"
+version = "0.1.0"
+dependencies = [
+ "cortex-m 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m-rt 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "panic-semihosting 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "stm32f103xx-hal 0.1.0 (git+https://github.com/japaric/stm32f103xx-hal)",
+]
+
+[[package]]
+name = "cast"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "cc"
+version = "1.0.18"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "cortex-m"
+version = "0.5.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "aligned 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "bare-metal 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cc 1.0.18 (registry+https://github.com/rust-lang/crates.io-index)",
+ "volatile-register 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "cortex-m-rt"
+version = "0.5.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "cc 1.0.18 (registry+https://github.com/rust-lang/crates.io-index)",
+ "r0 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "cortex-m-semihosting"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "cc 1.0.18 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "embedded-hal"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "nb 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "void 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "nb"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "panic-itm"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "cortex-m 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "panic-semihosting"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "cortex-m 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m-semihosting 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "r0"
+version = "0.2.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "stm32f103xx"
+version = "0.10.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "bare-metal 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "vcell 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "stm32f103xx-hal"
+version = "0.1.0"
+source = "git+https://github.com/japaric/stm32f103xx-hal#687dc4b2eda17ec20f5a6fd8ffe411297eaef9d1"
+dependencies = [
+ "cast 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m-rt 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "embedded-hal 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "nb 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "panic-itm 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "panic-semihosting 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "stm32f103xx 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "void 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[[package]]
+name = "vcell"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "void"
+version = "1.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "volatile-register"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+dependencies = [
+ "vcell 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
+]
+
+[metadata]
+"checksum aligned 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "d39da9b88ae1a81c03c9c082b8db83f1d0e93914126041962af61034ab44c4a5"
+"checksum bare-metal 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "517bf6fd0a06665f8a6d094d3a520f1d0a989c3d114470a75a84a39204e69e96"
+"checksum cast 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "926013f2860c46252efceabb19f4a6b308197505082c609025aa6706c011d427"
+"checksum cc 1.0.18 (registry+https://github.com/rust-lang/crates.io-index)" = "2119ea4867bd2b8ed3aecab467709720b2d55b1bcfe09f772fd68066eaf15275"
+"checksum cortex-m 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)" = "93ceb454f8942689dae03a0b1d6b6e866f30acb5358ada9698e71f2728cd4924"
+"checksum cortex-m-rt 0.5.1 (registry+https://github.com/rust-lang/crates.io-index)" = "6d5c26952ec2bdfd3c66cddb22cb6432b042ca9ccda55762ebba68b73adbae5a"
+"checksum cortex-m-semihosting 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)" = "0b3d0df96d537c4f66dd9f4d1da21d83f9a5917990196925b3603be85e46071e"
+"checksum embedded-hal 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "26944677e4934eb5fb4025501dc0d6cdbcf6bfabd6200fcfee2e7e8eef8c0362"
+"checksum nb 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "69f380b5fe9fab8c0d7a6a99cda23e2cc0463bedb2cbc3aada0813b98496ecdc"
+"checksum panic-itm 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "6b571b82c62ba962d2434a8fdb66408e707536e5ff6d1aef2409606f1182bb08"
+"checksum panic-semihosting 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)" = "52f64dcd9aebf9d40f8c40ab4400bab503c89997330b8d775c20f373bf0e13fc"
+"checksum r0 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "e2a38df5b15c8d5c7e8654189744d8e396bddc18ad48041a500ce52d6948941f"
+"checksum stm32f103xx 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c0984862c7c29bd701be77ae20b77ad0bbaa7978ca48877d058b18cd3ec5342e"
+"checksum stm32f103xx-hal 0.1.0 (git+https://github.com/japaric/stm32f103xx-hal)" = "<none>"
+"checksum vcell 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "45c297f0afb6928cd08ab1ff9d95e99392595ea25ae1b5ecf822ff8764e57a0d"
+"checksum void 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)" = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"
+"checksum volatile-register 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "0d67cb4616d99b940db1d6bd28844ff97108b498a6ca850e5b6191a532063286"
