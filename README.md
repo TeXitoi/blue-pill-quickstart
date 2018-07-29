@@ -12,7 +12,7 @@ Get an cleanup:
 git clone https://github.com/TeXitoi/blue-pill-quickstart.git
 mv blue-pill-quickstart my-new-project
 cd my-new-project
-rm -fr .git LICENSE README.md
+rm -fr .git LICENSE README.md st-link-v2-blue-pill.jpg
 git init
 ```
 
@@ -35,6 +35,8 @@ cd blue-pill-quickstart
 ```
 
 Now, connect your ST-LINK to your blue pill. Connect the ST-LINK to your computer.
+
+![ST-LINK V2 to blue pill](st-link-v2-blue-pill.jpg)
 
 Launch openocd:
 
