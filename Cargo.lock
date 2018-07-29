@@ -9,7 +9,7 @@ version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "blinking_blue_pill"
+name = "blue-pill-quickstart"
 version = "0.1.0"
 dependencies = [
  "cortex-m 0.5.2 (registry+https://github.com/rust-lang/crates.io-index)",

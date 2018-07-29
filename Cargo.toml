@@ -1,5 +1,5 @@
 [package]
-name = "blinking_blue_pill"
+name = "blue-pill-quickstart"
 version = "0.1.0"
 authors = ["Guillaume Pinot <texitoi@texitoi.eu>"]
 
