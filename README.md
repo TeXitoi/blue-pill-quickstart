@@ -6,7 +6,7 @@ Quickstart a Rust project for the [blue pill board](https://wiki.stm32duino.com/
 
 This section suppose your computer is already ready to hack on a blue pill.
 
-Get an cleanup:
+Get and cleanup:
 
 ```shell
 git clone https://github.com/TeXitoi/blue-pill-quickstart.git
