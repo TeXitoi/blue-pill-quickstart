@@ -9,8 +9,7 @@ This section suppose your computer is already ready to hack on a blue pill.
 Get and cleanup:
 
 ```shell
-git clone https://github.com/TeXitoi/blue-pill-quickstart.git
-mv blue-pill-quickstart my-new-project
+git clone https://github.com/TeXitoi/blue-pill-quickstart.git my-new-project
 cd my-new-project
 rm -fr .git LICENSE README.md st-link-v2-blue-pill.jpg
 git init
