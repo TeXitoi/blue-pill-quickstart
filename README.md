@@ -37,12 +37,17 @@ Now, connect your ST-LINK to your blue pill. Connect the ST-LINK to your compute
 
 ![ST-LINK V2 to blue pill](st-link-v2-blue-pill.jpg)
 
-Launch openocd:
+Launch openocd (the command may fail, go to "Trouble Shooting" for the potential solution):
 
 ```shell
 ./openocd.sh
 ```
 
+Set the directories trusted for loading files not explicitly requested by user.
+```shell 
+echo "set auto-load safe-path /" >> ~/.gdbinit 
+```
+ 
 Open a new terminal, compile and flash
 
 ```shell
@@ -51,6 +56,21 @@ cargo run
 ```
 
 Now, the program is flashed, and you are on a gdb prompt. Type `c` (for continue) you can see the on board LED blinking.
+
+## Trouble Shooting
+
+The formerly mentionned st-link may not have the right pin mapping as showed on its shell. If `openocd` returns `unknown code 0x9`, please check the pin mapping by removing the shell and re-connect your st-link with the mapping shown on the PCB.
+
+If you're unable to remove the shell, try this pin mapping:
+
+|pin|      |pin|       | 
+|---|------|---|-------|
+| 1 | RST  | 2 | SWCLK |
+| 3 | SWIM | 4 | SWDIO |
+| 5 | GND  | 6 | GND   |
+| 7 | 3.3V | 8 | 3.3V  |
+| 9 | 5.0V |10 | 5.0V  |
+
 
 ## Sources
 
