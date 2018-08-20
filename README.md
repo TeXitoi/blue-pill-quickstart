@@ -74,4 +74,4 @@ If you're unable to remove the shell, try this pin mapping:
 
 ## Sources
 
-This quickstart is inspired by the [cortex-m-quickstart](https://github.com/japaric/cortex-m-quickstart) and [Discovery](https://japaric.github.io/discovery/). I recommand reading them.
+This quickstart is inspired by the [cortex-m-quickstart](https://github.com/japaric/cortex-m-quickstart) and [Discovery](https://rust-embedded.github.io/discovery/). I recommand reading them.
