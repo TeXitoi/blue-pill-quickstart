@@ -28,7 +28,7 @@ curl https://sh.rustup.rs -sSf | sh
 rustup install nightly
 rustup default nightly
 rustup target add thumbv7m-none-eabi
-sudo apt-get install gcc-arm-none-eabi gdb-arm-none-eabi openocd
+sudo apt-get install gdb-arm-none-eabi openocd
 git clone https://github.com/TeXitoi/blue-pill-quickstart.git
 cd blue-pill-quickstart
 ```
