@@ -7,8 +7,8 @@ extern crate cortex_m_rt as rt;
 extern crate panic_semihosting;
 extern crate stm32f103xx_hal as hal;
 
-use rt::ExceptionFrame;
 use hal::prelude::*;
+use rt::ExceptionFrame;
 
 entry!(main);
 
