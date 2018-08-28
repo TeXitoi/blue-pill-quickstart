@@ -1,4 +1,4 @@
-# blue-pill-quickstart
+# blue-pill-quickstart [![Build status](https://travis-ci.org/TeXitoi/blue-pill-quickstart.svg?branch=master)](https://travis-ci.org/TeXitoi/blue-pill-quickstart)
 
 Quickstart a Rust project for the [blue pill board](https://wiki.stm32duino.com/index.php?title=Blue_Pill), or any STM32F103xx board.
 
