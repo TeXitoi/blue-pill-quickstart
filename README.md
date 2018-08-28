@@ -21,14 +21,20 @@ Edit `Cargo.toml` for author and project name, and you're ready to go.
 
 First, you need hardware. Buy a [blue pill](https://www.aliexpress.com/w/wholesale-stm32f103c8t6.html?&SortType=total_tranpro_desc) and a [ST-LINK V2](https://www.aliexpress.com/w/wholesale-st-link-v2.html?SortType=total_tranpro_desc). You also need a computer, I will suppose you have a Debian based distribution. It should be easy to adapt the instructions to any supported computer (Linux, MacOSX, Windows).
 
-Then, install everything on your computer:
+Then, install and setup everything on your computer:
 
 ```shell
 curl https://sh.rustup.rs -sSf | sh
 rustup install nightly
 rustup default nightly
-rustup target add thumbv7m-none-eabi
+rustup target add --toolchain nightly thumbv7m-none-eabi
 sudo apt-get install gdb-arm-none-eabi openocd
+echo "set auto-load safe-path /" >> ~/.gdbinit 
+```
+
+Clone the repository:
+
+```shell
 git clone https://github.com/TeXitoi/blue-pill-quickstart.git
 cd blue-pill-quickstart
 ```
@@ -41,11 +47,6 @@ Launch openocd (the command may fail, go to "Trouble Shooting" for the potential
 
 ```shell
 ./openocd.sh
-```
-
-Set the directories trusted for loading files not explicitly requested by user.
-```shell 
-echo "set auto-load safe-path /" >> ~/.gdbinit 
 ```
  
 Open a new terminal, compile and flash
