@@ -6,5 +6,5 @@ authors = ["Guillaume Pinot <texitoi@texitoi.eu>"]
 [dependencies]
 stm32f103xx-hal = { git = "https://github.com/japaric/stm32f103xx-hal", branch = "master" }
 cortex-m = "0.5"
-cortex-m-rt = "0.5"
-panic-semihosting = "0.3"
+cortex-m-rt = "0.6"
+panic-semihosting = "0.5"
