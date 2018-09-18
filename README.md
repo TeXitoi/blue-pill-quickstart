@@ -26,11 +26,11 @@ Then, install and setup everything on your computer:
 ```shell
 curl https://sh.rustup.rs -sSf | sh
 rustup install nightly
-rustup default nightly
 rustup target add --toolchain nightly thumbv7m-none-eabi
 sudo apt-get install gdb-arm-none-eabi openocd
-echo "set auto-load safe-path /" >> ~/.gdbinit 
 ```
+
+If you don't have `gdb-arm-none-eabi`, you can try `gdb-multiarch` (on Ubuntu 18.04 for example) or `gdb`. In these cases, you'll have to update `.cargo/config` accordingly.
 
 Clone the repository:
 
@@ -53,7 +53,7 @@ Open a new terminal, compile and flash
 
 ```shell
 cd blue-pill-quickstart
-cargo run
+cargo +nightly run
 ```
 
 Now, the program is flashed, and you are on a gdb prompt. Type `c` (for continue) you can see the on board LED blinking.
