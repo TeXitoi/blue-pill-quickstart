@@ -13,9 +13,9 @@ name = "blue-pill-quickstart"
 version = "0.1.0"
 dependencies = [
  "cortex-m 0.5.7 (registry+https://github.com/rust-lang/crates.io-index)",
- "cortex-m-rt 0.6.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m-rt 0.6.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "panic-semihosting 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "stm32f103xx-hal 0.1.0 (git+https://github.com/japaric/stm32f103xx-hal)",
+ "stm32f103xx-hal 0.1.0 (git+https://github.com/TeXitoi/stm32f103xx-hal?branch=update-for-1.30)",
 ]
 
 [[package]]
@@ -35,31 +35,22 @@ dependencies = [
 
 [[package]]
 name = "cortex-m-rt"
-version = "0.5.7"
+version = "0.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
- "cortex-m-rt 0.6.3 (registry+https://github.com/rust-lang/crates.io-index)",
- "r0 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "cortex-m-rt"
-version = "0.6.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-dependencies = [
- "cortex-m-rt-macros 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m-rt-macros 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "r0 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "cortex-m-rt-macros"
-version = "0.1.1"
+version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "proc-macro2 0.4.19 (registry+https://github.com/rust-lang/crates.io-index)",
  "quote 0.6.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "rand 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)",
- "syn 0.14.9 (registry+https://github.com/rust-lang/crates.io-index)",
+ "syn 0.15.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -80,23 +71,6 @@ dependencies = [
 name = "nb"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-
-[[package]]
-name = "panic-itm"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-dependencies = [
- "cortex-m 0.5.7 (registry+https://github.com/rust-lang/crates.io-index)",
-]
-
-[[package]]
-name = "panic-semihosting"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-dependencies = [
- "cortex-m 0.5.7 (registry+https://github.com/rust-lang/crates.io-index)",
- "cortex-m-semihosting 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)",
-]
 
 [[package]]
 name = "panic-semihosting"
@@ -154,22 +128,20 @@ dependencies = [
 [[package]]
 name = "stm32f103xx-hal"
 version = "0.1.0"
-source = "git+https://github.com/japaric/stm32f103xx-hal#687dc4b2eda17ec20f5a6fd8ffe411297eaef9d1"
+source = "git+https://github.com/TeXitoi/stm32f103xx-hal?branch=update-for-1.30#de14598b888bdb4870592f5e8aedbc965981e42e"
 dependencies = [
  "cast 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "cortex-m 0.5.7 (registry+https://github.com/rust-lang/crates.io-index)",
- "cortex-m-rt 0.5.7 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m-rt 0.6.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "embedded-hal 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "nb 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "panic-itm 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "panic-semihosting 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "stm32f103xx 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "void 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
 name = "syn"
-version = "0.14.9"
+version = "0.15.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "proc-macro2 0.4.19 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -205,14 +177,11 @@ dependencies = [
 "checksum bare-metal 0.2.3 (registry+https://github.com/rust-lang/crates.io-index)" = "1bdcf9294ed648c7cd29b11db06ea244005aeef50ae8f605b1a3af2940bf8f92"
 "checksum cast 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "926013f2860c46252efceabb19f4a6b308197505082c609025aa6706c011d427"
 "checksum cortex-m 0.5.7 (registry+https://github.com/rust-lang/crates.io-index)" = "4573199c5b1e9b0eeae418b46f7c0af5fdf11b3057f83880810dfef68dd1dcb5"
-"checksum cortex-m-rt 0.5.7 (registry+https://github.com/rust-lang/crates.io-index)" = "09fd585ab79330179866e2fdb18ad1083dada4244a72df81ecf63f012aa4f86f"
-"checksum cortex-m-rt 0.6.3 (registry+https://github.com/rust-lang/crates.io-index)" = "9dea4ad5f88b4ccfba2b738ebe42f9452b80481c44aae42c594cc66cf2c5f3c0"
-"checksum cortex-m-rt-macros 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "f96e6af14f78ca987ba5487592a199878a7b17ee65b60e0b4aa563fc00965f4f"
+"checksum cortex-m-rt 0.6.4 (registry+https://github.com/rust-lang/crates.io-index)" = "d86cfa89fa220d3cb7a41133693e2d302d18e9a632298ffb3738f175c8c12325"
+"checksum cortex-m-rt-macros 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "3139fdadccaa0db6fa96637678ced9b0b97e4f10047c9ab603d125048e107d1a"
 "checksum cortex-m-semihosting 0.3.1 (registry+https://github.com/rust-lang/crates.io-index)" = "54d46ec4730314a01de4504328ef4ed6b2c51b63815caac4847ac9e70f88c9e5"
 "checksum embedded-hal 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "26944677e4934eb5fb4025501dc0d6cdbcf6bfabd6200fcfee2e7e8eef8c0362"
 "checksum nb 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)" = "69f380b5fe9fab8c0d7a6a99cda23e2cc0463bedb2cbc3aada0813b98496ecdc"
-"checksum panic-itm 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "6b571b82c62ba962d2434a8fdb66408e707536e5ff6d1aef2409606f1182bb08"
-"checksum panic-semihosting 0.3.0 (registry+https://github.com/rust-lang/crates.io-index)" = "52f64dcd9aebf9d40f8c40ab4400bab503c89997330b8d775c20f373bf0e13fc"
 "checksum panic-semihosting 0.5.0 (registry+https://github.com/rust-lang/crates.io-index)" = "1017854db1621a236488ac359b89b19a56dcb1cb45127376d04f23128cea7210"
 "checksum proc-macro2 0.4.19 (registry+https://github.com/rust-lang/crates.io-index)" = "ffe022fb8c8bd254524b0b3305906c1921fa37a84a644e29079a9e62200c3901"
 "checksum quote 0.6.8 (registry+https://github.com/rust-lang/crates.io-index)" = "dd636425967c33af890042c483632d33fa7a18f19ad1d7ea72e8998c6ef8dea5"
@@ -220,8 +189,8 @@ dependencies = [
 "checksum rand 0.5.5 (registry+https://github.com/rust-lang/crates.io-index)" = "e464cd887e869cddcae8792a4ee31d23c7edd516700695608f5b98c67ee0131c"
 "checksum rand_core 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "edecf0f94da5551fc9b492093e30b041a891657db7940ee221f9d2f66e82eef2"
 "checksum stm32f103xx 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)" = "c0984862c7c29bd701be77ae20b77ad0bbaa7978ca48877d058b18cd3ec5342e"
-"checksum stm32f103xx-hal 0.1.0 (git+https://github.com/japaric/stm32f103xx-hal)" = "<none>"
-"checksum syn 0.14.9 (registry+https://github.com/rust-lang/crates.io-index)" = "261ae9ecaa397c42b960649561949d69311f08eeaea86a65696e6e46517cf741"
+"checksum stm32f103xx-hal 0.1.0 (git+https://github.com/TeXitoi/stm32f103xx-hal?branch=update-for-1.30)" = "<none>"
+"checksum syn 0.15.7 (registry+https://github.com/rust-lang/crates.io-index)" = "455a6ec9b368f8c479b0ae5494d13b22dc00990d2f00d68c9dc6a2dc4f17f210"
 "checksum unicode-xid 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "fc72304796d0818e357ead4e000d19c9c174ab23dc11093ac919054d20a6a7fc"
 "checksum vcell 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)" = "45c297f0afb6928cd08ab1ff9d95e99392595ea25ae1b5ecf822ff8764e57a0d"
 "checksum void 1.0.2 (registry+https://github.com/rust-lang/crates.io-index)" = "6a02e4885ed3bc0f2de90ea6dd45ebcbb66dacffe03547fadbb0eeae2770887d"
