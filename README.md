@@ -25,8 +25,7 @@ Then, install and setup everything on your computer:
 
 ```shell
 curl https://sh.rustup.rs -sSf | sh
-rustup install nightly
-rustup target add --toolchain nightly thumbv7m-none-eabi
+rustup target add thumbv7m-none-eabi
 sudo apt-get install gdb-arm-none-eabi openocd
 ```
 
@@ -53,7 +52,7 @@ Open a new terminal, compile and flash
 
 ```shell
 cd blue-pill-quickstart
-cargo +nightly run
+cargo run
 ```
 
 Now, the program is flashed, and you are on a gdb prompt. Type `c` (for continue) you can see the on board LED blinking.
