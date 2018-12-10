@@ -2,9 +2,16 @@
 name = "blue-pill-quickstart"
 version = "0.1.0"
 authors = ["Guillaume Pinot <texitoi@texitoi.eu>"]
+edition = "2018"
 
 [dependencies]
-stm32f103xx-hal = { git = "https://github.com/japaric/stm32f103xx-hal", branch = "master" }
 cortex-m = "0.5"
-cortex-m-rt = "0.6"
+cortex-m-rt = { version = "0.6", features = ["device"] }
 panic-semihosting = "0.5"
+bare-metal = { version = "0.2.4", features = ["const-fn"] }
+
+[dependencies.hal]
+git = "https://github.com/japaric/stm32f103xx-hal"
+branch = "master"
+package = "stm32f103xx-hal"
+features = ["rt"]

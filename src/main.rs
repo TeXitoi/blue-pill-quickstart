@@ -1,39 +1,68 @@
 #![no_main]
 #![no_std]
 
-extern crate cortex_m;
-extern crate cortex_m_rt as rt;
+// set the panic handler
 extern crate panic_semihosting;
-extern crate stm32f103xx_hal as hal;
 
+use core::cell::RefCell;
+use cortex_m::interrupt::Mutex;
+use cortex_m::peripheral::syst::SystClkSource;
+use cortex_m_rt::{entry, exception};
+use hal::gpio;
 use hal::prelude::*;
-use rt::{entry, exception, ExceptionFrame};
+
+// declare our global variable to hold the led device
+type Led = gpio::gpioc::PC13<gpio::Output<gpio::PushPull>>;
+static LED: Mutex<RefCell<Option<Led>>> = Mutex::new(RefCell::new(None));
 
 #[entry]
 fn main() -> ! {
-    let dp = hal::stm32f103xx::Peripherals::take().unwrap();
-    let cp = cortex_m::Peripherals::take().unwrap();
-    let mut flash = dp.FLASH.constrain();
-    let mut rcc = dp.RCC.constrain();
-    let mut gpioc = dp.GPIOC.split(&mut rcc.apb2);
-    let clocks = rcc.cfgr.freeze(&mut flash.acr);
-    let mut delay = hal::delay::Delay::new(cp.SYST, clocks);
-    let mut led = gpioc.pc13.into_push_pull_output(&mut gpioc.crh);
+    let mut core = cortex_m::Peripherals::take().unwrap();
+    let device = hal::stm32f103xx::Peripherals::take().unwrap();
+    let mut rcc = device.RCC.constrain();
+    let mut flash = device.FLASH.constrain();
 
+    // Set the clock to full speed
+    let clocks = rcc
+        .cfgr
+        .use_hse(8.mhz())
+        .sysclk(72.mhz())
+        .pclk1(36.mhz())
+        .freeze(&mut flash.acr);
+
+    // configure the user led
+    let mut gpioc = device.GPIOC.split(&mut rcc.apb2);
+    let led = gpioc.pc13.into_push_pull_output(&mut gpioc.crh);
+
+    // move the led in the global variable
+    cortex_m::interrupt::free(move |cs| {
+        *LED.borrow(cs).borrow_mut() = Some(led);
+    });
+
+    // configure SysTick to generate an exception every second
+    core.SYST.set_clock_source(SystClkSource::Core);
+    core.SYST.set_reload(clocks.sysclk().0);
+    core.SYST.enable_counter();
+    core.SYST.enable_interrupt();
+
+    // sleep
     loop {
-        led.set_high();
-        delay.delay_ms(1_000u16);
-        led.set_low();
-        delay.delay_ms(1_000u16);
+        cortex_m::asm::wfi();
     }
 }
 
 #[exception]
-fn HardFault(ef: &ExceptionFrame) -> ! {
-    panic!("{:#?}", ef);
-}
+fn SysTick() {
+    static mut state: bool = false;
 
-#[exception]
-fn DefaultHandler(irqn: i16) {
-    panic!("Unhandled exception (IRQn = {})", irqn);
+    cortex_m::interrupt::free(|cs| {
+        if let Some(led) = LED.borrow(cs).borrow_mut().as_mut() {
+            if *state {
+                led.set_low();
+            } else {
+                led.set_high();
+            }
+            *state = !*state;
+        }
+    });
 }
