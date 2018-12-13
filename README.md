@@ -19,7 +19,7 @@ Edit `Cargo.toml` for author and project name, and you're ready to go.
 
 ## Setting up everything on your machine
 
-First, you need hardware. Buy a [blue pill](https://www.aliexpress.com/w/wholesale-stm32f103c8t6.html?&SortType=total_tranpro_desc) and a [ST-LINK V2](https://www.aliexpress.com/w/wholesale-st-link-v2.html?SortType=total_tranpro_desc). You also need a computer, I will suppose you have a Debian based distribution. It should be easy to adapt the instructions to any supported computer (Linux, MacOSX, Windows).
+First, you need hardware. Buy a [blue pill](https://www.aliexpress.com/w/wholesale-stm32f103c8t6.html?&SortType=total_tranpro_desc) and a [ST-Link V2](https://www.aliexpress.com/w/wholesale-st-link-v2.html?SortType=total_tranpro_desc). You also need a computer, I will suppose you have a Debian based distribution. It should be easy to adapt the instructions to any supported computer (Linux, MacOSX, Windows).
 
 Then, install and setup everything on your computer:
 
@@ -38,9 +38,9 @@ git clone https://github.com/TeXitoi/blue-pill-quickstart.git
 cd blue-pill-quickstart
 ```
 
-Now, connect your ST-LINK to your blue pill. Connect the ST-LINK to your computer.
+Now, connect your ST-Link to your blue pill. Connect the ST-Link to your computer.
 
-![ST-LINK V2 to blue pill](st-link-v2-blue-pill.jpg)
+![ST-Link V2 to blue pill](st-link-v2-blue-pill.jpg)
 
 Launch openocd:
 
@@ -61,7 +61,7 @@ Now, the program is flashed, and you are on a gdb prompt. Type `c` (for continue
 
 ### Wrong connection of the ST-Link
 
-The formerly mentionned ST-Link may not have the right pin mapping as showed on its shell. If `openocd` returns `unknown code 0x9`, please check the pin mapping by removing the shell and re-connect your st-link with the mapping shown on the PCB.
+The formerly mentionned ST-Link may not have the right pin mapping as showed on its shell. If `openocd` returns `unknown code 0x9`, please check the pin mapping by removing the shell and re-connect your ST-Link with the mapping shown on the PCB.
 
 If you're unable to remove the shell, try this pin mapping:
 
