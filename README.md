@@ -71,6 +71,27 @@ If you're unable to remove the shell, try this pin mapping:
 | 7 | 3.3V | 8 | 3.3V  |
 | 9 | 5.0V |10 | 5.0V  |
 
+When flashing your blue pill for the first time, flashing may fail with the following messages in the openocd console:
+
+```
+Error: stm32x device protected
+Error: failed erasing sectors 0 to 23
+Error: flash_erase returned -4
+```
+
+This means your blue pill's flash is protected. To unlock it, you can connect to your openocd session with:
+
+```shell
+telnet localhost 4444
+```
+
+and type the following commands:
+
+```
+reset halt
+stm32f1x unlock 0
+reset halt
+```
 
 ## Sources
 
