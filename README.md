@@ -42,7 +42,7 @@ Now, connect your ST-LINK to your blue pill. Connect the ST-LINK to your compute
 
 ![ST-LINK V2 to blue pill](st-link-v2-blue-pill.jpg)
 
-Launch openocd (the command may fail, go to "Trouble Shooting" for the potential solution):
+Launch openocd:
 
 ```shell
 ./openocd.sh
@@ -59,7 +59,9 @@ Now, the program is flashed, and you are on a gdb prompt. Type `c` (for continue
 
 ## Trouble Shooting
 
-The formerly mentionned st-link may not have the right pin mapping as showed on its shell. If `openocd` returns `unknown code 0x9`, please check the pin mapping by removing the shell and re-connect your st-link with the mapping shown on the PCB.
+### Wrong connection of the ST-Link
+
+The formerly mentionned ST-Link may not have the right pin mapping as showed on its shell. If `openocd` returns `unknown code 0x9`, please check the pin mapping by removing the shell and re-connect your st-link with the mapping shown on the PCB.
 
 If you're unable to remove the shell, try this pin mapping:
 
@@ -70,6 +72,8 @@ If you're unable to remove the shell, try this pin mapping:
 | 5 | GND  | 6 | GND   |
 | 7 | 3.3V | 8 | 3.3V  |
 | 9 | 5.0V |10 | 5.0V  |
+
+### Flash protected
 
 When flashing your blue pill for the first time, flashing may fail with the following messages in the openocd console:
 
