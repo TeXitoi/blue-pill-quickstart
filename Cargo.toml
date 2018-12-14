@@ -6,7 +6,7 @@ edition = "2018"
 
 [dependencies]
 cortex-m = "0.5"
-cortex-m-rt = { version = "0.6", features = ["device"] }
+cortex-m-rt = { version = "0.6.6", features = ["device"] }
 panic-semihosting = "0.5"
 bare-metal = { version = "0.2.4", features = ["const-fn"] }
 
