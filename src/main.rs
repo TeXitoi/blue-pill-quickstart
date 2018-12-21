@@ -4,16 +4,12 @@
 // set the panic handler
 extern crate panic_semihosting;
 
-use core::cell::RefCell;
-use cortex_m::interrupt::Mutex;
+use core::sync::atomic::{AtomicBool, Ordering};
 use cortex_m::peripheral::syst::SystClkSource;
 use cortex_m_rt::{entry, exception};
-use hal::gpio;
 use hal::prelude::*;
 
-// declare our global variable to hold the led device
-type Led = gpio::gpioc::PC13<gpio::Output<gpio::PushPull>>;
-static LED: Mutex<RefCell<Option<Led>>> = Mutex::new(RefCell::new(None));
+static TOGGLE_LED: AtomicBool = AtomicBool::new(false);
 
 #[entry]
 fn main() -> ! {
@@ -30,12 +26,7 @@ fn main() -> ! {
 
     // configure the user led
     let mut gpioc = device.GPIOC.split(&mut rcc.apb2);
-    let led = gpioc.pc13.into_push_pull_output(&mut gpioc.crh);
-
-    // move the led in the global variable
-    cortex_m::interrupt::free(move |cs| {
-        *LED.borrow(cs).borrow_mut() = Some(led);
-    });
+    let mut led = gpioc.pc13.into_push_pull_output(&mut gpioc.crh);
 
     // configure SysTick to generate an exception every second
     core.SYST.set_clock_source(SystClkSource::Core);
@@ -43,24 +34,16 @@ fn main() -> ! {
     core.SYST.enable_counter();
     core.SYST.enable_interrupt();
 
-    // sleep
     loop {
+        // sleep
         cortex_m::asm::wfi();
+        if TOGGLE_LED.swap(false, Ordering::AcqRel) {
+            led.toggle();
+        }
     }
 }
 
 #[exception]
 fn SysTick() {
-    static mut state: bool = false;
-
-    cortex_m::interrupt::free(|cs| {
-        if let Some(led) = LED.borrow(cs).borrow_mut().as_mut() {
-            if *state {
-                led.set_low();
-            } else {
-                led.set_high();
-            }
-            *state = !*state;
-        }
-    });
+    TOGGLE_LED.store(true, Ordering::Release);
 }
