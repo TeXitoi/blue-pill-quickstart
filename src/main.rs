@@ -22,12 +22,10 @@ fn main() -> ! {
     let mut rcc = device.RCC.constrain();
     let mut flash = device.FLASH.constrain();
 
-    // Set the clock to full speed
     let clocks = rcc
         .cfgr
         .use_hse(8.mhz())
-        .sysclk(72.mhz())
-        .pclk1(36.mhz())
+        .sysclk(16.mhz())
         .freeze(&mut flash.acr);
 
     // configure the user led
