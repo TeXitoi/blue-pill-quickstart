@@ -45,7 +45,7 @@ Now, connect your ST-Link to your blue pill. Connect the ST-Link to your compute
 Launch openocd:
 
 ```shell
-./openocd.sh
+openocd
 ```
  
 Open a new terminal, compile and flash

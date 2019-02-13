@@ -7,14 +7,14 @@ extern crate panic_semihosting;
 use core::sync::atomic::{AtomicBool, Ordering};
 use cortex_m::peripheral::syst::SystClkSource;
 use cortex_m_rt::{entry, exception};
-use hal::prelude::*;
+use stm32f1xx_hal::prelude::*;
 
 static TOGGLE_LED: AtomicBool = AtomicBool::new(false);
 
 #[entry]
 fn main() -> ! {
     let mut core = cortex_m::Peripherals::take().unwrap();
-    let device = hal::stm32f103xx::Peripherals::take().unwrap();
+    let device = stm32f1xx_hal::stm32::Peripherals::take().unwrap();
     let mut rcc = device.RCC.constrain();
     let mut flash = device.FLASH.constrain();
 
