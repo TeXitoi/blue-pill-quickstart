@@ -63,7 +63,15 @@ Now, the program is flashed, and you are on a gdb prompt. Type `c` (for continue
 
 The formerly mentionned ST-Link may not have the right pin mapping as showed on its shell. If `openocd` returns `unknown code 0x9`, please check the pin mapping by removing the shell and re-connect your ST-Link with the mapping shown on the PCB.
 
-If you're unable to remove the shell, try this pin mapping:
+If you're unable to remove the shell or the PCB is not readable, you can try one of thess pin mappings than are known to exist:
+
+|pin|      |pin|       | 
+|---|------|---|-------|
+| 1 | RST  | 2 | SWDIO |
+| 3 | GND  | 4 | GND   |
+| 5 | SWIM | 6 | SWCLK |
+| 7 | 3.3V | 8 | 3.3V  |
+| 9 | 5.0V |10 | 5.0V  |
 
 |pin|      |pin|       | 
 |---|------|---|-------|
