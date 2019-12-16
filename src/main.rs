@@ -8,7 +8,6 @@ use core::sync::atomic::{AtomicBool, Ordering};
 use cortex_m::peripheral::syst::SystClkSource;
 use cortex_m_rt::{entry, exception};
 use stm32f1xx_hal::prelude::*;
-use void::ResultVoidExt;
 
 static TOGGLE_LED: AtomicBool = AtomicBool::new(false);
 
@@ -39,7 +38,7 @@ fn main() -> ! {
         // sleep
         cortex_m::asm::wfi();
         if TOGGLE_LED.swap(false, Ordering::AcqRel) {
-            led.toggle().void_unwrap();
+            led.toggle().unwrap();
         }
     }
 }
