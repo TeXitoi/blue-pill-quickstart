@@ -42,7 +42,7 @@ First connect your ST-Link to your blue pill, then connect the ST-Link to your c
 
 ![ST-Link V2 to blue pill](st-link-v2-blue-pill.jpg)
 
-Launch openocd:
+Launch openocd in the `blue-pill-quickstart` directory:
 
 ```shell
 openocd
